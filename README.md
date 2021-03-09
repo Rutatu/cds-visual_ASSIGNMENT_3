@@ -23,7 +23,7 @@ Here are the instructions for runing this script using bash file in terminal on 
    
     ALTERNATIVELY
     
-   - You could clone the repository, type: git clone https://github.com/Rutatu/cds-visual_Assignment_3.git. But I am unsure whether the script will succeed, I haven´t checked that.
+   - You could clone the repository, type: git clone https://github.com/Rutatu/cds-visual_analytics_Assignment_3.git. But I am unsure whether the script will succeed, I haven´t checked that.
     
 ##2 Execute the script
    - Open terminal
