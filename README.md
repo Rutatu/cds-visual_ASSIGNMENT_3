@@ -7,29 +7,82 @@
 
 # Finding text using edge detection
 
-The purpose of this assignment is to use computer vision to extract specific features from images. In particular, the script is designed to find text, language-like objects, such as letters and punctuation. It includes such image processing methods as drawing region of interest, croping an image, canny edge detection and finding countours of objects.
+## About the script
 
-# Instructions to run the code:
+This assignment is Class Assignment 3. The task was to use computer vision to extract language-like objects, such as letters and punctuation from the image. To accomplish this task several operations had to be made: drawing region of interest, cropping the image, contouring letters.
 
-This repository is a subset taken from cds-visual environment on worker02. The 'data' folder contains 'Edge_detection' folder where the original picture 'Memorial_IMG' is located. The output files will end up in this folder after executing the code. There is a bash file edge_detection.sh for creating the environment with its dependencies and running the script and kill_edge_detection.sh file for removing the environment.A notebook (.ipynb) file was zipped due to its large size.  
+## Methods
 
-Here are the instructions for runing this script using bash file in terminal on worker02:
+The problem of the task relates to detecting letters in an image using computer vision. To address this problem, firstly, I drew a green rectangular box to show a region of interest (ROI) around the main body of text in the middle of the image and saved this as image_with_ROI.jpg. Secondly, using simple slicing with indexing I cropped the original image to create a new image containing only the ROI in the rectangle and saved this as image_cropped.jpg. Thirdly, using this cropped image, I used Canny edge detection to 'find' every letter in the image. The following steps were executed: image turned into grayscale, applied Gaussian Blur, applied Canny edge detection. I experimented with two threshold values of ```cv2.Canny```: minVal and maxVal, to reduce as much noise as possible while detecting as many letters as possible. The image was saved as image_canny.jpg. Lastly, I drew a green contour around each letter in the cropped image and saved this as image_letters.jpg.
 
-##1 Preparation     
-   - Create Edge_detection folder in data folder in cds-visual environment on worker02 and place there 'Memorial_IMG' image. 
-   - Place edge_detection.py file in 'src' folder.
-   - Place edge_detection.sh and kill_edge_detection.sh files in cds-visual environment
-   - Place requirements.txt file in cds-visual environment
-   
-    ALTERNATIVELY
-    
-   - You could clone the repository, type: git clone https://github.com/Rutatu/cds-visual_analytics_Assignment_3.git. But I am unsure whether the script will succeed, I haven´t checked that.
-    
-##2 Execute the script
-   - Open terminal
-   - Navigate to the right environment, type: cd cds-visual  
-   - Type: bash edge_detection.sh (this will install the requirements and will execute the script. In the end, you should get a message that it worked.)
-   - Take a look at the folder 'Edge_detection' for the output files to make sure that the script worked.
-   - To remove the newly created edge_detection environment type: bash kill_edge_detection.sh
 
-I hope it worked :)
+## Repository contents
+
+| File | Description |
+| --- | --- |
+| out | Folder containing files produced by the scripts |
+| out/logReg_confusion_matrix.png | Confusion matrix of LR classifier |
+| out/logReg_report.csv | Classification metrics of the LR classifier |
+| out/NN_report.csv | Classification metrics of the NN classifier |
+| src | Folder containing the scripts |
+| src/Logistic_Regression.py | Logistic Regression classifier script |
+| src/Neural_Network.py | Neural Network classifier script |
+| utils/ | Folder containing utility scripts for the project  |
+| utils/classifier_utils.py | utility script used in LR classifier script |
+| utils/neuralnetwork.py | utility script used in NN classifier script |
+| README.md | Description of the assignment and the instructions |
+| create_classification_venv.bash | bash file for creating a virtual environmment |
+| kill_classification_venv.bash | bash file for removing a virtual environment |
+| requirements.txt | list of python packages required to run the script |
+
+
+## Data
+
+For this task only one image in a JPG format was used. Image can be downloaded at the link below:
+
+https://upload.wikimedia.org/wikipedia/commons/f/f4/%22We_Hold_These_Truths%22_at_Jefferson_Memorial_IMG_4729.JPG
+
+
+## Intructions to run the codes
+
+Code was tested on an HP computer with Windows 10 operating system. It was executed on Jupyter worker02.
+
+__Steps__
+
+Set-up:
+```
+#1 Open terminal on worker02 or locally
+#2 Navigate to the environment where you want to clone this repository
+#3 Clone the repository
+$ git clone https://github.com/Rutatu/cds-visual_analytics_Assignment_3.git 
+
+#4 Navigate to the newly cloned repo
+$ cd cds-visual_analytics_Assignment_3
+
+#5 Create virtual environment with its dependencies (and activate it)
+$ bash edge_detection.sh
+## $ source ./classification/bin/activate
+
+``` 
+
+Run the code:
+
+```
+#6 Navigate to the directory of the script
+$ cd src
+
+#7 Run the code
+$ python edge_detection.py
+
+#8 To remove the newly created virtual environment
+$ bash kill_edge_detection.sh
+
+ ```
+
+I hope it worked!
+
+
+## Results
+
+Detecting letters in an image might seem trivial to us humans due to our visual system running the show behind the scenes. However, it is a tricky task for the computer. This task has proven that it is a challenge to detect each letter in one specific image detecting as little background noise as possible, let alone to automate such a task with many different images. In the output image called image_letters.jpg we can see that the inside contours of letters O and D were not detected. More experimenting with minVal and maxVal values of ```cv2.Canny```, which determine what is considered to be an edge or non-edge, might be necessary in order to improve the final result. Different preprocessing steps and blurring techniques might be considered as well.
+
