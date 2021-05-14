@@ -20,19 +20,17 @@ The problem of the task relates to detecting letters in an image using computer 
 
 | File | Description |
 | --- | --- |
-| out | Folder containing files produced by the scripts |
-| out/logReg_confusion_matrix.png | Confusion matrix of LR classifier |
-| out/logReg_report.csv | Classification metrics of the LR classifier |
-| out/NN_report.csv | Classification metrics of the NN classifier |
-| src | Folder containing the scripts |
-| src/Logistic_Regression.py | Logistic Regression classifier script |
-| src/Neural_Network.py | Neural Network classifier script |
-| utils/ | Folder containing utility scripts for the project  |
-| utils/classifier_utils.py | utility script used in LR classifier script |
-| utils/neuralnetwork.py | utility script used in NN classifier script |
+| data/ | Folder containing files produced by the scripts |
+| data/Memorial_IMG.jpg | Input image for the script |
+| data/image_with_ROI.jpg | Output Image with drawn region of interest |
+| data/image_cropped.jpg | Output image cropped |
+| data/image_canny.jpg | Output image with applied canny edge detection algorithm |
+| data/image_letters.jpg | Output image with contoured letters|
+| src/| Folder containing the script |
+| src/edge_detection.py | The script of this project |
+| edge_detection.sh | bash file for creating a virtual environmment |
+| kill_edge_detection.sh | bash file for removing a virtual environment |
 | README.md | Description of the assignment and the instructions |
-| create_classification_venv.bash | bash file for creating a virtual environmment |
-| kill_classification_venv.bash | bash file for removing a virtual environment |
 | requirements.txt | list of python packages required to run the script |
 
 
