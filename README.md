@@ -1,6 +1,6 @@
-# cds-visual_analytics_Assignment_3
+# cds-visual_Assignment_3
 
-***Assignment for visual analytics class at Aarhus University.***
+***Class sssignment for visual analytics class at Aarhus University.***
 
 ***2021-03-08***
 
